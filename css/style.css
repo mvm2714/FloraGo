@@ -26,6 +26,11 @@ body {
   border-radius: 8px;
   cursor: pointer;
   z-index: 1100;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #6d4b28;
 }
 
 /* ===== Sidebar (oculta al inicio) ===== */
@@ -92,7 +97,7 @@ body {
   margin-left: 260px;
 }
 
-/* ===== Sección de presentación (index) ===== */
+/* ===== Hero - Página principal ===== */
 .hero {
   min-height: 100vh;
   background: url('../assets/img/background.jpg') no-repeat center center/cover;
@@ -104,40 +109,60 @@ body {
   color: #fff;
 }
 
-.hero-content {
+.hero-text {
   background: rgba(75, 46, 14, 0.65);
-  padding: 2.5rem;
+  padding: 3rem 2rem;
   border-radius: 16px;
   max-width: 720px;
 }
 
-.hero h1 {
+.hero-text h1 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 1.5rem;
 }
 
-.hero p {
+.hero-text p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.hero .btn {
+.btn-cta {
   background: #25d366;
   color: #fff;
-  padding: 0.9rem 1.6rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s ease;
 }
 
-.hero .btn:hover {
+.btn-cta:hover {
   background: #1ebe5d;
 }
 
-/* ===== Catálogo ===== */
+/* ===== Sección Quiénes somos ===== */
+.about {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== Catálogo de Productos ===== */
 .catalogo {
   padding: 3rem 2rem;
   text-align: center;
@@ -173,8 +198,8 @@ body {
 
 .producto img {
   width: 100%;
-  height: 220px;      /* Tamaño uniforme */
-  object-fit: cover;  /* Recorte elegante */
+  height: 220px;
+  object-fit: cover;
   border-bottom: 2px solid #f0f0f0;
 }
 
@@ -243,4 +268,20 @@ body {
 
 .contacto .btn-whatsapp {
   font-size: 1.1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .grid-ramos {
+    gap: 1.5rem;
+  }
+  .producto img {
+    height: 180px;
+  }
 }
