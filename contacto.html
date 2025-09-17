@@ -18,17 +18,36 @@
         <li><a href="ramos.html">Ramos</a></li>
         <li><a href="centros.html">Centros de Mesa</a></li>
         <li><a href="arreglos.html">Arreglos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
       </ul>
     </nav>
 
     <div class="main-content">
       <section class="contacto">
-        <h1>Contáctanos</h1>
-        <p>Haz tu pedido rápido y directo a través de WhatsApp:</p>
-        <a href="https://wa.me/34123456789?text=Hola,%20quiero%20más%20información%20sobre%20FloraGO" target="_blank" class="btn-cta">Escribir por WhatsApp</a>
+        <h1>Contacto</h1>
+        <p>Cuéntanos lo que necesitas y cómo lo quieres, nuestro equipo se encargará de hacerlo realidad.</p>
 
-        <p>También puedes visitarnos en nuestra floristería o llamarnos al <strong>+34 123 456 789</strong>.</p>
+        <form class="contact-form" action="https://wa.me/34688794488" method="get" target="_blank">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Tu correo" required>
+
+          <label for="categoria">Categoría</label>
+          <select id="categoria" name="categoria" required>
+            <option value="">Selecciona</option>
+            <option value="Ramos">Ramos</option>
+            <option value="Centros">Centros de Mesa</option>
+            <option value="Arreglos">Arreglos Florales</option>
+          </select>
+
+          <label for="detalle">Detalle del pedido</label>
+          <textarea id="detalle" name="detalle" rows="6" placeholder="Cuéntanos exactamente lo que quieres..." required></textarea>
+
+          <button type="submit" class="btn-whatsapp">Enviar por WhatsApp</button>
+        </form>
+
       </section>
     </div>
   </div>
