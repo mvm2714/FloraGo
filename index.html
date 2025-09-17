@@ -10,43 +10,48 @@
 </head>
 <body>
   <header class="hero">
+    <!-- Menú hamburguesa -->
+    <nav class="menu" id="menu">
+      <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        <li class="has-submenu">
+          Ramos de Rosas
+          <ul>
+            <li><a href="#6-unidades">6 unidades</a></li>
+            <li><a href="#12-unidades">12 unidades</a></li>
+            <li><a href="#18-unidades">18 unidades</a></li>
+            <li><a href="#24-unidades">24 unidades</a></li>
+          </ul>
+        </li>
+        <li><a href="#bouquets">Bouquets / Ramos variados</a></li>
+        <li class="has-submenu">
+          Ramos de flor seca
+          <ul>
+            <li><a href="#ramos-flor-seca-detalle">Ramos</a></li>
+          </ul>
+        </li>
+        <li><a href="#centros-flor-rosas">Centros de Flor y Rosas</a></li>
+        <li class="has-submenu">
+          Funerarios
+          <ul>
+            <li><a href="#coronas">Coronas</a></li>
+            <li><a href="#palmas">Palmas</a></li>
+            <li><a href="#ramos-funerarios">Ramos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
     <div class="hero-text">
       <h1>FloraGO!!!</h1>
       <p>Ramos de Rosas • Ramos de Flores • Centros de Mesa • Arreglos a Domicilio</p>
       <a href="#catalogo" class="btn">Ver Catálogo</a>
     </div>
   </header>
-
-  <!-- Menú -->
-  <nav class="menu">
-    <ul>
-      <li>
-        <a href="#ramos-rosas">Ramos de Rosas</a>
-        <ul>
-          <li><a href="#6-unidades">6 unidades</a></li>
-          <li><a href="#12-unidades">12 unidades</a></li>
-          <li><a href="#18-unidades">18 unidades</a></li>
-          <li><a href="#24-unidades">24 unidades</a></li>
-        </ul>
-      </li>
-      <li><a href="#bouquets">Bouquets / Ramos variados</a></li>
-      <li>
-        <a href="#ramos-flor-seca">Ramos de flor seca</a>
-        <ul>
-          <li><a href="#ramos-flor-seca-detalle">Ramos</a></li>
-        </ul>
-      </li>
-      <li><a href="#centros-flor-rosas">Centros de Flor y Rosas</a></li>
-      <li>
-        <a href="#funerarios">Funerarios</a>
-        <ul>
-          <li><a href="#coronas">Coronas</a></li>
-          <li><a href="#palmas">Palmas</a></li>
-          <li><a href="#ramos-funerarios">Ramos</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
 
   <!-- Sección Ramos de Rosas -->
   <section id="ramos-rosas" class="catalogo">
@@ -145,5 +150,39 @@
   <footer>
     <p>&copy; 2025 FloraGO!!!. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Toggle menú hamburguesa
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Abrir/cerrar submenús
+    const submenuParents = document.querySelectorAll('.menu ul li.has-submenu');
+
+    submenuParents.forEach(parent => {
+      parent.addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Cerrar otros submenús abiertos
+        submenuParents.forEach(item => {
+          if (item !== parent) {
+            item.classList.remove('open');
+          }
+        });
+        parent.classList.toggle('open');
+      });
+    });
+
+    // Cerrar menú si se hace clic fuera
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target)) {
+        menu.classList.remove('active');
+        submenuParents.forEach(item => item.classList.remove('open'));
+      }
+    });
+  </script>
 </body>
 </html>
