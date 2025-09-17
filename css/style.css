@@ -1,13 +1,33 @@
-/* ===== Layout general ===== */
+/* ===== Reset ===== */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #fff;
   color: #4b2e0e;
   min-height: 100vh;
-  display: flex;
+  background: #fff;
 }
 
+/* ===== Botón toggle menú ===== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  background: #4b2e0e;
+  color: #f9f3ee;
+  border: none;
+  font-size: 1.8rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #6d4b28;
+}
+
+/* ===== Layout ===== */
 .layout {
   display: flex;
   width: 100%;
@@ -18,12 +38,18 @@ body {
   width: 250px;
   background: #4b2e0e;
   color: #f9f3ee;
-  min-height: 100vh;
+  height: 100vh;
   padding: 20px;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -260px; /* Oculta por defecto */
   overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0; /* Se muestra */
 }
 
 .sidebar .logo {
@@ -60,17 +86,19 @@ body {
 
 /* ===== Contenido principal ===== */
 .main-content {
-  margin-left: 250px;
-  padding: 0;
   flex-grow: 1;
-  background: #f9f3ee;
-  min-height: 100vh;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
 }
 
-/* ===== Hero (presentación) ===== */
+.sidebar.active ~ .main-content {
+  margin-left: 250px; /* Empuja el contenido */
+}
+
+/* ===== Hero ===== */
 .hero {
-  height: 80vh;
-  background: url('../assets/img/background.jpg') no-repeat center center/cover;
+  height: 90vh;
+  background: url('../assets/img/background.jpg') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,36 +113,37 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(75, 46, 14, 0.4); /* overlay oscuro elegante */
+  background: rgba(75, 46, 14, 0.45); /* Overlay oscuro */
 }
 
 .hero-text {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 800px;
+  padding: 40px;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-family: 'Playfair Display', serif;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .hero-text h1 span {
-  color: #ffd700; /* dorado */
+  color: #ffd700; /* Dorado */
 }
 
 .hero-text p {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  margin-bottom: 30px;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 35px;
 }
 
 .btn-cta {
   background: #ffd700;
   color: #4b2e0e;
   font-weight: 700;
-  padding: 14px 30px;
+  padding: 14px 32px;
   border-radius: 30px;
   text-decoration: none;
   transition: background 0.3s ease;
@@ -124,35 +153,36 @@ body {
   background: #e6c200;
 }
 
-/* ===== About section ===== */
+/* ===== About ===== */
 .about {
-  padding: 60px 40px;
+  padding: 80px 60px;
   text-align: center;
   background: white;
 }
 
 .about h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
 }
 
 .about p {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: #6d4b28;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .sidebar {
-    width: 200px;
+    width: 220px;
+    left: -230px;
   }
 
-  .main-content {
-    margin-left: 200px;
+  .sidebar.active ~ .main-content {
+    margin-left: 220px;
   }
 
   .hero-text h1 {
@@ -161,5 +191,9 @@ body {
 
   .hero-text p {
     font-size: 1rem;
+  }
+
+  .about {
+    padding: 50px 20px;
   }
 }
