@@ -3,277 +3,174 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background: #fff;
-  color: #4b2e0e;
+  color: #4b2e0e; /* marrón oscuro */
+  min-height: 100vh;
 }
 
+/* Contenedor principal para separar del fondo */
+.container {
+  max-width: 1100px;
+  margin: 40px auto 60px;
+  background: #f9f3ee; /* beige claro */
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 20px rgba(75, 46, 14, 0.2);
+}
+
+/* Encabezados */
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
-  margin: 0 0 10px;
   color: #4b2e0e;
+  margin-bottom: 12px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* Header principal */
+header {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-section {
-  padding: 40px 20px;
-  max-width: 900px;
+header h1 {
+  font-size: 3.8rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(75,46,14,0.2);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #6d4b28; /* marrón medio */
+  letter-spacing: 1.3px;
+  margin-top: 8px;
+}
+
+/* Botón principal */
+.btn {
+  margin-top: 30px;
+  background-color: #4b2e0e;
+  color: #f9f3ee;
+  padding: 14px 38px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(75, 46, 14, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #6d4b28;
+  box-shadow: 0 8px 22px rgba(109, 75, 40, 0.6);
+  outline: none;
+}
+
+/* Catálogo oculto inicialmente */
+#catalogo {
+  display: none;
+  max-width: 100%;
   margin: auto;
 }
 
-.catalogo {
-  background: #f9f3ee;
-  border-radius: 12px;
+/* Título catálogo */
+#catalogo h2 {
+  font-size: 2.8rem;
   margin-bottom: 40px;
+  text-align: center;
+  color: #4b2e0e;
+  text-shadow: 1px 1px 2px rgba(75,46,14,0.15);
 }
 
-.producto {
+/* Grid de productos */
+.grid-ramos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Cada card de producto */
+.ramo {
   background: white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 6px rgba(75,46,14,0.15);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(75, 46, 14, 0.12);
+  overflow: hidden;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.producto img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  height: 200px;
+.ramo:focus,
+.ramo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(75, 46, 14, 0.28);
+  outline: none;
+}
+
+/* Imagen del ramo */
+.ramo img {
+  width: 100%;
+  height: 180px;
   object-fit: cover;
+  border-bottom: 4px solid #4b2e0e;
+  transition: filter 0.3s ease;
 }
 
-.btn-whatsapp {
-  background: #25d366;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 20px;
-  font-weight: 600;
-  margin-top: 12px;
-  transition: background-color 0.3s ease;
-  display: inline-block;
+.ramo:hover img {
+  filter: brightness(0.95);
 }
 
-.btn-whatsapp:hover {
-  background: #1ebe5b;
-  color: white;
-}
-
-.hero {
-  background: url('../assets/img/hero-background.jpg') center/cover no-repeat;
-  height: 100vh;
-  color: white;
+/* Info producto */
+.ramo-info {
+  padding: 20px 18px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0 40px;
-  position: relative;
-  text-shadow: 0 0 6px rgba(0,0,0,0.5);
-}
-
-.hero-text h1 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-}
-
-.hero-text p {
-  font-size: 1.25rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.btn {
-  background-color: #4b2e0e;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #6d4b28;
-}
-
-/* ===== Menú hamburguesa ===== */
-nav.menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  font-family: 'Open Sans', sans-serif;
-  background: transparent;
-  user-select: none;
-}
-
-/* Icono hamburguesa */
-.menu-toggle {
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 1100;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 4px;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Animación icono activo */
-nav.menu.active .menu-toggle span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-nav.menu.active .menu-toggle span:nth-child(2) {
-  opacity: 0;
-}
-
-nav.menu.active .menu-toggle span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Menú principal oculto por defecto */
-.menu ul {
-  list-style: none;
-  margin: 10px 0 0 0;
-  padding: 0;
-  background: rgba(75, 46, 14, 0.95);
-  border-radius: 8px;
-  width: 220px;
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 40px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-/* Mostrar menú cuando está activo */
-nav.menu.active ul {
-  display: block;
-}
-
-/* Items del menú */
-.menu ul li {
-  padding: 12px 20px;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  user-select: none;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-/* Último ítem sin borde */
-.menu ul li:last-child {
-  border-bottom: none;
-}
-
-.menu ul li:hover {
-  background-color: rgba(255,255,255,0.15);
-}
-
-/* Submenús ocultos por defecto */
-.menu ul li ul {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background: rgba(75, 46, 14, 0.95);
-  border-radius: 8px;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  z-index: 1001;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* Mostrar submenú cuando padre tiene clase open */
-.menu ul li.open > ul {
-  display: block;
-}
-
-/* Items del submenú */
-.menu ul li ul li {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 18px;
-  font-weight: 400;
-  cursor: pointer;
-  color: white;
-  transition: background-color 0.2s ease;
-}
-
-/* Último item submenú sin borde */
-.menu ul li ul li:last-child {
-  border-bottom: none;
-}
-
-.menu ul li ul li:hover {
-  background-color: rgba(255,255,255,0.25);
-}
-
-/* Flecha para indicar submenú */
-.menu ul li.has-submenu::after {
-  content: '▼';
-  font-size: 0.6em;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  user-select: none;
-  color: #ddd;
-}
-
-/* Sección sobre nosotros */
-.sobre-nosotros {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #f5f0e6;
-  border-radius: 10px;
-  color: #4b2e0e;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-/* Footer */
-footer {
   text-align: center;
-  padding: 20px 10px;
-  font-size: 0.9rem;
-  background: #4b2e0e;
-  color: white;
+}
+
+.ramo-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #4b2e0e;
+}
+
+.ramo-info p {
+  font-size: 1rem;
+  color: #6d4b28;
+  line-height: 1.4;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .hero-text h1 {
-    font-size: 2.5rem;
+@media (max-width: 768px) {
+  .container {
+    margin: 20px 15px 40px;
+    padding: 30px 20px;
   }
 
-  nav.menu ul {
-    width: 180px;
+  header h1 {
+    font-size: 2.8rem;
   }
 
-  .producto img {
-    height: 150px;
+  .btn {
+    width: 100%;
+  }
+
+  #catalogo h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  .grid-ramos {
+    gap: 20px;
+  }
+
+  .ramo img {
+    height: 140px;
   }
 }
