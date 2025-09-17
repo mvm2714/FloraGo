@@ -116,6 +116,7 @@ nav.menu {
   user-select: none;
 }
 
+/* Icono hamburguesa */
 .menu-toggle {
   width: 30px;
   height: 25px;
@@ -134,7 +135,7 @@ nav.menu {
   transition: all 0.3s ease;
 }
 
-/* Animación para icono cuando está activo */
+/* Animación icono activo */
 nav.menu.active .menu-toggle span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -147,7 +148,7 @@ nav.menu.active .menu-toggle span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Lista del menú - oculta por defecto */
+/* Menú principal oculto por defecto */
 .menu ul {
   list-style: none;
   margin: 10px 0 0 0;
@@ -162,12 +163,12 @@ nav.menu.active .menu-toggle span:nth-child(3) {
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
-/* Mostrar menú cuando activo */
+/* Mostrar menú cuando está activo */
 nav.menu.active ul {
   display: block;
 }
 
-/* Estilo items del menú */
+/* Items del menú */
 .menu ul li {
   padding: 12px 20px;
   color: white;
@@ -179,6 +180,7 @@ nav.menu.active ul {
   transition: background-color 0.2s ease;
 }
 
+/* Último ítem sin borde */
 .menu ul li:last-child {
   border-bottom: none;
 }
@@ -187,7 +189,7 @@ nav.menu.active ul {
   background-color: rgba(255,255,255,0.15);
 }
 
-/* Submenús ocultos */
+/* Submenús ocultos por defecto */
 .menu ul li ul {
   display: none;
   position: absolute;
@@ -198,20 +200,27 @@ nav.menu.active ul {
   min-width: 180px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   z-index: 1001;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-/* Mostrar submenú cuando el padre tiene clase open */
+/* Mostrar submenú cuando padre tiene clase open */
 .menu ul li.open > ul {
   display: block;
 }
 
-/* Submenú items */
+/* Items del submenú */
 .menu ul li ul li {
   border-bottom: 1px solid rgba(255,255,255,0.1);
   padding: 10px 18px;
   font-weight: 400;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease;
 }
 
+/* Último item submenú sin borde */
 .menu ul li ul li:last-child {
   border-bottom: none;
 }
