@@ -2,60 +2,63 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FloraGO!!!</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FloraGO - Ramos y Arreglos Florales</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <!-- Menú hamburguesa -->
-    <nav class="menu" id="menu">
-      <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul>
-        <li class="has-submenu">
-          <span>Ramos de Rosas</span>
-          <ul>
-            <li><a href="ramos.html#6-unidades">6 unidades</a></li>
-            <li><a href="ramos.html#12-unidades">12 unidades</a></li>
-            <li><a href="ramos.html#18-unidades">18 unidades</a></li>
-            <li><a href="ramos.html#24-unidades">24 unidades</a></li>
-          </ul>
-        </li>
-        <li><a href="bouquets.html">Bouquets / Ramos variados</a></li>
-        <li class="has-submenu">
-          <span>Ramos de flor seca</span>
-          <ul>
-            <li><a href="flor-seca.html">Ramos</a></li>
-          </ul>
-        </li>
-        <li><a href="centros.html">Centros de Flor y Rosas</a></li>
-        <li class="has-submenu">
-          <span>Funerarios</span>
-          <ul>
-            <li><a href="funerarios.html#coronas">Coronas</a></li>
-            <li><a href="funerarios.html#palmas">Palmas</a></li>
-            <li><a href="funerarios.html#ramos">Ramos</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+  <div class="container">
+    <header>
+      <h1>FloraGO</h1>
+      <p class="subtitle">Ramos de Rosas • Centros de Mesa • Arreglos a Domicilio</p>
+      <button class="btn" id="btnCatalogo" aria-expanded="false" aria-controls="catalogo">
+        Ver Catálogo
+      </button>
+    </header>
 
-    <div class="hero-text">
-      <h1>FloraGO!!!</h1>
-      <p>Ramos de Rosas • Ramos de Flores • Centros de Mesa • Arreglos a Domicilio</p>
-      <a href="ramos.html" class="btn">Ver Catálogo</a>
-    </div>
-  </header>
+    <main>
+      <section id="catalogo" aria-label="Catálogo de Ramos">
+        <h2>Catálogo de Ramos</h2>
+        <div class="grid-ramos">
+          <article class="ramo" tabindex="0">
+            <img src="assets/img/ramo12rosas.png" alt="Ramo de 12 Rosas" />
+            <div class="ramo-info">
+              <h3>Ramo de 12 Rosas</h3>
+              <p>Elegante ramo de 12 rosas frescas, ideal para ocasiones especiales.</p>
+            </div>
+          </article>
 
-  <footer>
-    <p>&copy; 2025 FloraGO!!!. Todos los derechos reservados.</p>
-  </footer>
+          <article class="ramo" tabindex="0">
+            <img src="assets/img/ramo24rosas.jpg" alt="Ramo de 24 Rosas" />
+            <div class="ramo-info">
+              <h3>Ramo de 24 Rosas</h3>
+              <p>Impresionante ramo de 24 rosas para expresar tus sentimientos más profundos.</p>
+            </div>
+          </article>
+
+          <article class="ramo" tabindex="0">
+            <img src="assets/img/ramo6rosas.jpg" alt="Ramo de 6 Rosas" />
+            <div class="ramo-info">
+              <h3>Ramo de 6 Rosas</h3>
+              <p>Perfecto para un detalle sencillo y encantador.</p>
+            </div>
+          </article>
+
+          <article class="ramo" tabindex="0">
+            <img src="assets/img/centro-floral1.jpg" alt="Centro Floral" />
+            <div class="ramo-info">
+              <h3>Centro Floral</h3>
+              <p>Hermoso centro de mesa para decorar cualquier espacio.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="js/menu.js"></script>
 </body>
